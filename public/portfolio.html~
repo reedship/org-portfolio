@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nil" xml:lang="nil">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reed Shipley</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Reed" />
+<link rel="stylesheet" type="text/css" href="./assets/retro_dark.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">Reed Shipley</h1>
+
+<div id="org0bb4441" class="figure">
+<p><img src="./assets/golfing.jpg" alt="golfing.jpg" />
+</p>
+</div>
+
+<div id="outline-container-i-am-a-software-engineer-based-out-of-texas.-i-build-scalable-software-solutions-to-solve-a-wide-variety-of-problems-both-in-private-enterprise-and-for-the-federal-government.-i-am-available-or-freelance-work-and-am-proficient-in-a-variety-of-languages-and-frameworks.-i-am-a-green-belt-yonkyu-in-judo." class="outline-3">
+<h3 id="i-am-a-software-engineer-based-out-of-texas.-i-build-scalable-software-solutions-to-solve-a-wide-variety-of-problems-both-in-private-enterprise-and-for-the-federal-government.-i-am-available-or-freelance-work-and-am-proficient-in-a-variety-of-languages-and-frameworks.-i-am-a-green-belt-yonkyu-in-judo.">I am a software engineer based out of Texas. I build scalable software solutions to solve a wide variety of problems, both in private enterprise and for the federal government. I am available or freelance work and am proficient in a variety of languages and frameworks. I am a Green Belt (Yonkyu) in Judo.</h3>
+<div class="outline-text-3" id="text-i-am-a-software-engineer-based-out-of-texas.-i-build-scalable-software-solutions-to-solve-a-wide-variety-of-problems-both-in-private-enterprise-and-for-the-federal-government.-i-am-available-or-freelance-work-and-am-proficient-in-a-variety-of-languages-and-frameworks.-i-am-a-green-belt-yonkyu-in-judo.">
+</div>
+<div id="outline-container-this-portfolio-is-a-work-in-progress" class="outline-4">
+<h4 id="this-portfolio-is-a-work-in-progress">(This portfolio is a work in progress)</h4>
+<div class="outline-text-4" id="text-this-portfolio-is-a-work-in-progress">
+</div>
+</div>
+</div>
+
+<div id="outline-container-links" class="outline-2">
+<h2 id="links">LINKS</h2>
+<div class="outline-text-2" id="text-links">
+<ul class="org-ul">
+<li><a href="https://www.linkedin.com/in/reedbshipley">LinkedIn</a></li>
+<li><a href="https://www.github.com/reedship">Github</a></li>
+<li><a href="./assets/Reed%20Shipley%20resume.docx">Resume</a></li>
+<li><a href="mailto:%20reedbshipley@gmail.com">Email</a></li>
+<li><a href="case_studies/index.html">Writing</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-skills" class="outline-2">
+<h2 id="skills">SKILLS</h2>
+<div class="outline-text-2" id="text-skills">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Category</th>
+<th scope="col" class="org-left">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Languages</td>
+<td class="org-left">- C#</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Python</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Typescript</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Ruby</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Javascript</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Bash</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- ELisp</td>
+</tr>
+
+<tr>
+<td class="org-left">Frameworks</td>
+<td class="org-left">- .NET</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- React</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Vue</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Angular</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Redhat Openshift</td>
+</tr>
+
+<tr>
+<td class="org-left">Tools</td>
+<td class="org-left">- MSSQL</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Postgresql</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Emacs</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Docker</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Linux</td>
+</tr>
+
+<tr>
+<td class="org-left">Misc</td>
+<td class="org-left">- Small Engine Maintenance</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Cooking a french omelette</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">- Doing a perfect cartwheel</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-projects" class="outline-2">
+<h2 id="projects">PROJECTS</h2>
+<div class="outline-text-2" id="text-projects">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Title</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Link 1</th>
+<th scope="col" class="org-left">Link 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Todos</b></td>
+<td class="org-left">An NPM package for managing and reporting 'TODO' comments in software projects</td>
+<td class="org-left"><a href="https://www.npmjs.com/package/@shipleylabs/todos">NPM Package</a></td>
+<td class="org-left"><a href="https://github.com/reedship/todos_node">Github Repo</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>SimpleOkta</b></td>
+<td class="org-left">An open-source HTTP gem for common Okta API calls</td>
+<td class="org-left"><a href="https://rubygems.org/gems/simpleokta">RubyGems Source</a></td>
+<td class="org-left"><a href="https://github.com/reedship/simpleokta">Github Repo</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>PPP5</b></td>
+<td class="org-left">A Full Stack Pair Programming application for the P5.js library</td>
+<td class="org-left"><a href="https://www.youtube.com/embed/N95z3fSR3jY">Video Walkthrough</a></td>
+<td class="org-left"><a href="https://github.com/reedship/ppp5">Github Repo</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Magic: The Deck Builder</b></td>
+<td class="org-left">A small-scale application built in React to interact with the Magic API</td>
+<td class="org-left"><a href="https://www.youtube.com/embed/Mm0UnK66378">Video Walkthrough</a></td>
+<td class="org-left"><a href="https://github.com/reedship/mtdb">Github Repo</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Ordeer</b></td>
+<td class="org-left">A Full Stack Restaurant Ordering Application</td>
+<td class="org-left"><a href="https://www.youtube.com/embed/B5NUT5Hejf0">Video Walkthrough</a></td>
+<td class="org-left"><a href="https://github.com/restaurant-ordering/Ordeer">Github Repo</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Reed</p>
+</div>
+</body>
+</html>

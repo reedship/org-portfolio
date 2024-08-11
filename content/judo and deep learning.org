@@ -1,0 +1,45 @@
+* Judo and Deep Learning
+
+** A Brief Introduction
+
+I'm a software engineer in my day to day work, and I spend most of my time building and fixing APIs. Occasionally, I will find myself building a small internal tool to solve some niche problem, but my work is very ordinary and 'run of the mill'. I'm not being self-deprecating, but I think it's fair to say that my career and technical abilities are pretty average.
+
+I am not incredibly passionate about programming, but I love Judo. Judo, or `the gentle way`, is a Japanese grappling martial art, and I've been practicing it multiple times a week for almost two years. I had done some grappling in the Army, but the training was incredibly bare bones, a handful of chokes and one or two pins and some escapes. Some friends of mine started doing Brazilian Jiu-Jitsu a couple years ago, but I couldn't afford to start any new hobbies at the time, so I never did. Many years after that, a family friend told me that he and his two oldest kids had been going to a local judo club once a week, I went to watch a class to see if it would be something my son might be up for. He was too young to get started at the time, but I was intrigued. I decided to start.
+
+Since starting Judo, I've gotten back into the best shape of my life, found new friends, traveled around the state to compete at tournaments, and attended training camps run by former olympians to try to learn as much as possible so that I could be a little bit better. Training Judo, in and of itself, is something I find incredibly satisfying. I'm still very early on in my training, but I see myself continuing this for as long as my body is able to do it.
+
+The market for programmers is very turbulent right now, and it seems like every few months there are a new string of layoffs where very educated and talented engineers are suddenly out of work. I had a less than optimum entry into programming so I feel like if these highly pedigreed individuals are getting laid off, it's only a matter of time before the market shifts for me as well. I don't have a bachelors degree, or even an associates, and my skill set doesn't set me apart from the crowd. With this in mind, I decided to expand that skill set with something that seems very in demand now and in the future, Machine Learning.
+
+** Athlete Progression in Judo
+
+It seems that, with small exception, most Judo clubs in the states run a similiar schedule for their classes. A brief warm up, some rolls and ukemi (break falls), followed by 30 minutes to an hour of drills around a specific technique of the instructors choosing (usually without a formal schedule or plan), and a couple rounds of randori (sparring, or 'free practice') at the end. There are many talented people who are pushing for a more data-driven coaching style ([[http://www.christopherround.com][Chris Round comes to mind]]), but it still feels like the minority opinion.
+
+Coaching for competition in Judo is still very 'old-school' in many places. The coach says "stay aggressive", "keep your feet moving", "don't let them get their dominant grip", etc, and the athlete does their best to follow this advice, but learns most of their faults through a painful pattern of getting thrown by someone who exploits those weaknesses over and over. This is 100% expected with a combat sport and I'm not arguing against it, since techniques don't reside in a vacuum and only exist in the context of the fight. If you cannot perform the technique against a fully resisting opponent, you can't say you have mastered it. However, there has to be a more data-driven way to discover these weaknesses.
+
+** The Idea
+
+Here is my hypothetical miracle product: a video analyzer that detects techniques (and their success rates), positions (whether the athlete is gripping standard sleeve + label, double sleeve, etc), shidos (penalties in judo), and logs these results to a usable format. A coach could look at these results and say, "you are never successful with Osoto Gari off of a cross grip", or "You are thrown 50% of the time when your opponent gets an overhand grip, we'll need to drill that position more often". Athletes could see a clear progression for their training, and coaches could know they are maximizing their time with each athlete.
+
+There are a couple of problems here.
+
+*** The Scale of the Problem
+
+This is a huge scope, and we'll need to simplify this greatly for a proof of concept. Starting with detecting basic shido conditions instead of techniques applied seems like the easiest first step.
+
+*** The Complexity
+
+The number and variations of techniques in judo are quite large, assuming we are only discussing nage-waza (throwing techniques), and excluding all Ne Waza (ground techniques) as a starting point.
+
+My goal would be to include these in the training set as well, though it's more likely that will be treated as it's own serious undertaking.
+
+*** The Training Data
+
+Building a training set will take a large amount of time. In order to properly train this model, I'll need a wide variety of athletes performing the techniques with a large amount of camera angles. It's possible that building the training set could take longer than the actual training of the model.
+
+I don't know as much as I'd like to about this section of machine learning, but I can forsee issues if I only train the model on videos of myself being thrown. The likelihood of bias in the predictions of such a model is pretty high.
+
+** To Everyone Else
+
+It is on this note that I would like to ask for your help. If you are a Judoka, and feel comfortable filming yourself performing any of the techniques in the [[https://judoinfo.com/gokyo1/][Gokyo no Waza]] please send them to me! If you feel up to editing, then small 2-3 second video of just the technique being performed will suffice. If you would like to send an unedited video and leave the clipping to me, that is totally ok! If you are a Judo content creator, and you don't mind me using your catalog of videos to help create this dataset, please let me know.
+
+Please proceed to [[file:01 - detecting judoka.html][the first entry in this case study]] for more information.
