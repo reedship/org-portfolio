@@ -12,8 +12,14 @@ jobs:
       - name: Check out
         uses: actions/checkout@v1
 
-      - name: Install Emacs
-        run: sudo apt install emacs-nox --yes
+      - name: Install dependencies
+        run: sudo apt-get update
+
+      - name: Install Emacs 29.1
+        run: |
+          sudo add-apt-repository ppa:kelleyk/emacs
+          sudo apt-get update
+          sudo apt-get install emacs29
 
       - name: Build the site
         run: ./build.sh
