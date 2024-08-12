@@ -3,12 +3,11 @@
 
 [[./assets/golfing.jpg]]
 
-*** I am a software engineer based out of Texas. I build scalable software solutions to solve a wide variety of problems, both in private enterprise and for the federal government. I am available or freelance work and am proficient in a variety of languages and frameworks.
+*** I am a software engineer based out of Texas. I build scalable software solutions to solve a wide variety of problems, both in private enterprise and for the federal government. I am available for freelance work and am proficient in a variety of languages and frameworks.
 
 *** I am a Green Belt (Yonkyu) in Judo.
 
 **** This portfolio was written entirely within Emacs in [[https://orgmode.org/][Org Mode]], and is constantly under development. The source code can be found [[https://github.com/reedship/org-portfolio][here]].
-
 
 ** LINKS
 
