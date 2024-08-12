@@ -1,6 +1,0 @@
-#+OPTIONS: toc:nil
-
-Here you'll find some writings in the order they were written, with the most recent at the top. All works within are my own personal opinion and do not reflect the opinions of my employers, sponsors, family, friends, or even acquaintences.
-
-- [[file:01 - detecting judoka.org][Judo and Deep Learning: 01 Detecting Judoka]]
-- [[file:judo and deep learning.org][Judo and Deep Learning]]
