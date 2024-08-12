@@ -54,7 +54,7 @@
 	     )
        (list "reed-portfolio-site"
 	     :html-preamble (concat "<div class='topnav'>
-                                      <a href='/portfolio.html'>Home</a> /
+                                      <a href='/index.html'>Home</a> /
                                       <a href='/writing.html'>Writing</a> /
                                       <a href='/about.html'>About Me</a>
                                       </div>")
