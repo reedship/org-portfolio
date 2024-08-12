@@ -7,7 +7,7 @@
 
 *** I am a Green Belt (Yonkyu) in Judo.
 
-**** (This portfolio is a work in progress)
+**** This portfolio was written entirely within Emacs in [[https://orgmode.org/][Org Mode]], and is constantly under development. The source code can be found [[https://github.com/reedship/org-portfolio][here]].
 
 
 ** LINKS
