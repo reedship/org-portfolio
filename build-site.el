@@ -7,8 +7,6 @@
 ;; 	(package-install 'htmlize))
 
 (require 'ox-publish)
-(require 'simple-httpd)
-
 ;; org-site/build-site.el
 (defun my/org-publish-org-sitemap-format (entry style project)
   "Custom sitemap entry formatting: add date"
