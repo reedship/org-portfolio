@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update
 
-      - name: Install Emacs 29.1
+      - name: Install Emacs 28
         run: |
           sudo add-apt-repository ppa:kelleyk/emacs
           sudo apt-get update
