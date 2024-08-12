@@ -55,7 +55,7 @@
        (list "reed-portfolio-site"
 	     :html-preamble (concat "<div class='topnav'>
                                       <a href='/index.html'>Home</a> /
-                                      <a href='/writing.html'>Writing</a> /
+                                      <a href='/writing.html'>Case Studies</a> /
                                       <a href='/about.html'>About Me</a>
                                       </div>")
              :recursive t
