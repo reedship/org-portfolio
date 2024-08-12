@@ -13,14 +13,14 @@
 A document version of this resume can be downloaded [[file:~/dev/org-portfolio/assets/Reed Shipley resume.docx][here]].
 
 * TECHNICAL SKILLS
-| **Category**    | **Tools/Technologies**                                         |
-|-----------------+----------------------------------------------------------------|
-| Languages       | .NET, Ruby, Javascript, Typescript, Python, Java, C#, HTML/CSS |
-| Frameworks      | Rails, React, .NET, Express, Sass, Material-UI                 |
-| Version Control | Git, Github, Gitlab, Bitbucket, Codecloud, SVN                 |
-| Cloud/DevOps    | Docker, Docker-Compose, Kubernetes, Red Hat OpenShift, AWS S3  |
-| Testing         | JUnit, RSpec, Jest, Postman, Selenium                          |
-| Databases       | MSSQL, MySQL, PostgreSQL, SQLite, MongoDB, Firebase            |
+| **Category**    | **Tools/Technologies**                                                       |
+|-----------------+------------------------------------------------------------------------------|
+| Languages       | Ruby, Python, Javascript, Typescript,Java, C#, HTML/CSS                      |
+| Frameworks      | .NET, Rails, React, .NET, Express, Sass                                      |
+| Version Control | Git, Github, Gitlab, Bitbucket, Codecloud, SVN                               |
+| Cloud/DevOps    | Docker, Docker-Compose, Kubernetes, Red Hat OpenShift, AWS S3, Azure Storage |
+| Testing         | JUnit, RSpec, Jest, Postman, Selenium                                        |
+| Databases       | MSSQL, MySQL, PostgreSQL, SQLite, MongoDB, Firebase                          |
 
 
 * Professional Experience
