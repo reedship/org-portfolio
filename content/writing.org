@@ -1,7 +1,5 @@
 #+OPTIONS: toc:nil
 
-# should i set the HTML_HEAD: <link rel="stylesheet" type="text/css" href="./assets/retro_dark.css" /> ? I don't know
-
 Here you'll find some writings in the order they were written, with the most recent at the top. All works within are my own personal opinion and do not reflect the opinions of my employers, sponsors, family, friends, or even acquaintences.
 
 - [[file:01 - detecting judoka.org][Judo and Deep Learning: 01 Detecting Judoka]]

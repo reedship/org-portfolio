@@ -8,6 +8,42 @@
 
 (require 'ox-publish)
 (require 'simple-httpd)
+
+;; org-site/build-site.el
+(defun my/org-publish-org-sitemap-format (entry style project)
+  "Custom sitemap entry formatting: add date"
+  (cond ((not (directory-name-p entry))
+         (let ((preview (if (my/get-preview (concat "content/" entry))
+                            (my/get-preview (concat "content/" entry))
+                          "(No preview)")))
+           (format "[[file:%s][(%s) %s]]\n%s"
+                   entry
+                   (format-time-string "%Y-%m-%d"
+                                       (org-publish-find-date entry project))
+                   (org-publish-find-title entry project)
+                   preview)))
+        ((eq style 'tree)
+         (file-name-nondirectory (directory-file-name entry)))
+        (t entry)))
+(defun my/org-publish-org-sitemap (title list)
+  "Sitemap generation function."
+  (concat "#+OPTIONS: toc:nil")
+  (org-list-to-subtree list))
+
+(defun my/get-preview (file)
+  "get preview text from a file
+
+ Uses the function here as a starting point:
+ https://ogbe.net/blog/blogging_with_org.html"
+  (with-temp-buffer
+    (insert-file-contents file)
+    (goto-char (point-min))
+    (when (re-search-forward "^#\\+BEGIN_PREVIEW$" nil 1)
+      (goto-char (point-min))
+      (let ((beg (+ 1 (re-search-forward "^#\\+BEGIN_PREVIEW$" nil 1)))
+            (end (progn (re-search-forward "^#\\+END_PREVIEW$" nil 1)
+                        (match-beginning 0))))
+        (buffer-substring beg end)))))
 ;; Define the publishing project
 (setq org-publish-project-alist
       (list
@@ -21,7 +57,7 @@
        (list "reed-portfolio-site"
 	     :html-preamble (concat "<div class='topnav'>
                                       <a href='/portfolio.html'>Home</a> /
-                                      <a href='/writing.html'>Blog</a> /
+                                      <a href='/writing.html'>Writing</a> /
                                       <a href='/about.html'>About Me</a>
                                       </div>")
              :recursive t
@@ -29,6 +65,13 @@
              :publishing-directory "./public"
              :publishing-function 'org-html-publish-to-html
 	     :with-toc t
+	     :auto-sitemap t
+	     :sitemap-title nil
+	     :sitemap-format-entry 'my/org-publish-org-sitemap-format
+             :sitemap-function 'my/org-publish-org-sitemap
+             :sitemap-sort-files 'anti-chronologically
+             :sitemap-filename "sitemap.org"
+             :sitemap-style 'tree
 	     :section-numbers nil
 	     :with-creator nil
 	     :with-author t

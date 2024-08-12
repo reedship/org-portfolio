@@ -1,65 +1,18 @@
 #+TITLE: Reed Shipley
 #+OPTIONS: toc:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./assets/retro_dark.css" />
 
 [[./assets/golfing.jpg]]
 
-*** I am a software engineer based out of Texas. I build scalable software solutions to solve a wide variety of problems, both in private enterprise and for the federal government. I am available or freelance work and am proficient in a variety of languages and frameworks. I am a Green Belt (Yonkyu) in Judo.
-:PROPERTIES:
-:CUSTOM_ID: i-am-a-software-engineer-based-out-of-texas.-i-build-scalable-software-solutions-to-solve-a-wide-variety-of-problems-both-in-private-enterprise-and-for-the-federal-government.-i-am-available-or-freelance-work-and-am-proficient-in-a-variety-of-languages-and-frameworks.-i-am-a-green-belt-yonkyu-in-judo.
-:END:
+*** I am a software engineer based out of Texas. I build scalable software solutions to solve a wide variety of problems, both in private enterprise and for the federal government. I am available or freelance work and am proficient in a variety of languages and frameworks.
+
+*** I am a Green Belt (Yonkyu) in Judo.
+
 **** (This portfolio is a work in progress)
-:PROPERTIES:
-:CUSTOM_ID: this-portfolio-is-a-work-in-progress
-:END:
+
 
 ** LINKS
-:PROPERTIES:
-:CUSTOM_ID: links
-:CLASS: links-left-title
-:END:
+
 - [[https://www.linkedin.com/in/reedbshipley][LinkedIn]]
 - [[https://www.github.com/reedship][Github]]
-- [[./assets/Reed%20Shipley%20resume.docx][Resume]]
+- [[../assets/Reed%20Shipley%20resume.docx][Resume]]
 - [[mailto:%20reedbshipley@gmail.com][Email]]
-- [[file:case_studies/index.org][Writing]]
-
-** SKILLS
-:PROPERTIES:
-:CUSTOM_ID: skills
-:END:
-| Category   | Values                      |
-|------------+-----------------------------|
-| Languages  | - C#                        |
-|            | - Python                    |
-|            | - Typescript                |
-|            | - Ruby                      |
-|            | - Javascript                |
-|            | - Bash                      |
-|            | - ELisp                     |
-| Frameworks | - .NET                      |
-|            | - React                     |
-|            | - Vue                       |
-|            | - Angular                   |
-|            | - Redhat Openshift          |
-| Tools      | - MSSQL                     |
-|            | - Postgresql                |
-|            | - Emacs                     |
-|            | - Docker                    |
-|            | - Linux                     |
-| Misc       | - Small Engine Maintenance  |
-|            | - Cooking a french omelette |
-|            | - Doing a perfect cartwheel |
-
-** PROJECTS
-:PROPERTIES:
-:CUSTOM_ID: projects
-:CLASS: projects-title
-:END:
-| Title                     | Description                                                                    | Link 1            | Link 2      |
-|---------------------------+--------------------------------------------------------------------------------+-------------------+-------------|
-| *Todos*                   | An NPM package for managing and reporting 'TODO' comments in software projects | [[https://www.npmjs.com/package/@shipleylabs/todos][NPM Package]]       | [[https://github.com/reedship/todos_node][Github Repo]] |
-| *SimpleOkta*              | An open-source HTTP gem for common Okta API calls                              | [[https://rubygems.org/gems/simpleokta][RubyGems Source]]   | [[https://github.com/reedship/simpleokta][Github Repo]] |
-| *PPP5*                    | A Full Stack Pair Programming application for the P5.js library                | [[https://www.youtube.com/embed/N95z3fSR3jY][Video Walkthrough]] | [[https://github.com/reedship/ppp5][Github Repo]] |
-| *Magic: The Deck Builder* | A small-scale application built in React to interact with the Magic API        | [[https://www.youtube.com/embed/Mm0UnK66378][Video Walkthrough]] | [[https://github.com/reedship/mtdb][Github Repo]] |
-| *Ordeer*                  | A Full Stack Restaurant Ordering Application                                   | [[https://www.youtube.com/embed/B5NUT5Hejf0][Video Walkthrough]] | [[https://github.com/restaurant-ordering/Ordeer][Github Repo]] |

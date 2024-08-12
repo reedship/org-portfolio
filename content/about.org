@@ -1,0 +1,97 @@
+#+TITLE: Reed Shipley Resume
+
+
+* APPLICATION PROGRAMMING INTERFACE (API) | BACK-END DEVELOPMENT
+  :PROPERTIES:
+  :ID: api-backend
+  :END:
+
+** Summary
+
+5+ years of progressive experience building comprehensive back-end solutions and navigating integration roadblocks, analyzing raw data to develop actionable steps that provide scalable and automated support. Structures substantive development across the full life cycle with multi-faceted skills and a history of working with enterprise clients, internal teams, startups, financial institutions, and government partners.
+
+A document version of this resume can be downloaded [[file:~/dev/org-portfolio/assets/Reed Shipley resume.docx][here]].
+
+* TECHNICAL SKILLS
+| **Category**    | **Tools/Technologies**                                         |
+|-----------------+----------------------------------------------------------------|
+| Languages       | .NET, Ruby, Javascript, Typescript, Python, Java, C#, HTML/CSS |
+| Frameworks      | Rails, React, .NET, Express, Sass, Material-UI                 |
+| Version Control | Git, Github, Gitlab, Bitbucket, Codecloud, SVN                 |
+| Cloud/DevOps    | Docker, Docker-Compose, Kubernetes, Red Hat OpenShift, AWS S3  |
+| Testing         | JUnit, RSpec, Jest, Postman, Selenium                          |
+| Databases       | MSSQL, MySQL, PostgreSQL, SQLite, MongoDB, Firebase            |
+
+
+* Professional Experience
+
+** Animal Care Technologies, Denton, TX
+   *SOFTWARE ENGINEER*
+   (4/2023 – Present)
+   - Worked with clients and stakeholders as a Full-Stack Engineer on a data-conversion tool for Veterinary Offices. Collaborated across software teams to create internal tools and documentation to modernize workflow for both developers and support.
+   - Researched and reverse-engineered database schemas and operations for data-quality efforts.
+   - Built automation scripts and internal tools to improve developer efficiency.
+   - Troubleshot client issues with our software to assist tech-support on escalated tickets.
+   - Maintained and improved .NET software product to meet client needs.
+
+** Shipley Labs LLC, Evergreen, CO
+   *FOUNDER | LEAD SOFTWARE ENGINEER*
+   (3/2022 – 4/2023)
+   - Strategized opportunities to consult for enterprise clients in back-end and API development projects within different frameworks. Responsible for leading stakeholder communications with extensive project planning, resource management, and cross-functional coordination.
+   - Worked on green-field and legacy projects to streamline scalability and scope of the product.
+   - Created software solutions for startup clients from conceptualization to implementation, managing development across the full life cycle.
+   - Handled all business logistics including client meetings, bidding, negotiations, road-mapping, implementation, user documentation, and delivery.
+   - Managed sub-contractors to ensure delivery to stakeholders.
+
+** Dave, Remote
+   *SOFTWARE ENGINEER*
+   (7/2021 – 3/2022)
+   - Performed back-end improvements for a fin-tech startup, refining products primarily in Typescript with feature improvements, modernization of existing codebase, and increased scalability. Tested and signed off on all changes to prepare the company for initial public offering.
+   - Developed internal and external API to deliver promotions for existing banking products, refactoring existing space to improve scalability.
+   - Refined CI/CD pipeline to streamline software delivery, testing, and automation.
+
+** Oddball, Remote
+   *SOFTWARE ENGINEER*
+   (7/2020 – 7/2021)
+   - Led technical initiatives in Typescript and Ruby on Rails for the Department of Veteran’s Affairs API platform, designing and implementing green field development. Consulted with senior stakeholders to develop technical specifications, build teams, provide updates, and coordinate execution procedures.
+   - Enhanced business development process as a Subject Matter Expert (SME) and reviewer for a government contract proposal, earning project approval for $40MM initiative.
+   - Established a cross-functional team of eight new hires, interviewing, onboarding, and training staff.
+   - Led research groundwork for VA project to evaluate legacy platform as one of four contributors to a 100-page white paper.
+
+** Active Cyber, Remote
+   *SENIOR FULL STACK DEVELOPER*
+   (3/2020 – 7/2020) (COVID-IMPACTED)
+   - Recruited by CTO after IBM contract was fulfilled to customize development for Okta Customer Identity Management integration, including API structure, containerization, and modernization. Contributed to team onboarding and training for three successive members.
+   - Enhanced back-end production code in a variety of languages and frameworks based on client needs.
+   - Accumulated additional skills in front-end development with a new pipeline of projects coming in weekly.
+
+** IBM, Remote, Dallas, TX
+   *APPLICATION DEVELOPER, CLOUD MICROSERVICES*
+   (6/2019 – 3/2020)
+   - Contributed to backend development of major enterprise software systems for key businesses on large multi-functional teams. Utilized Java 8, Maven, SpringBoot, SQL, Hibernate, JUnit, Oracle DB, and green field development to generate and automate reports.
+   - Assigned to a federal financial project valued at over $10B.
+   - Played a key role in modernization, microservice development, and production support.
+
+** Texas Army National Guard, Texas
+   *SERGEANT*
+   (3/2011 – 3/2017)
+   - Fire Direction Center Chief of a Battalion mortar platoon directing analysis of weather, personnel training, and combat precision requirements. Trained soldiers in job duties and oversaw day to day operations. Promoted to Non-Commissioned Officer ahead of peers at 3.5 years of service.
+
+* EDUCATION AND TRAINING
+   - Rockwall-Heath High School Diploma, Heath, TX
+
+* TECHNICAL CERTIFICATIONS
+   - Okta Certified Professional, Okta – 2020
+   - Certified Specialist in OpenShift Application Development, Red Hat – 2019
+   - Web Development Certificate, Dev Mountain, Dallas, TX – 2019
+
+
+** Interesting Projects
+
+| Title                     | Description                                                                    | Link 1            | Link 2      |
+|---------------------------+--------------------------------------------------------------------------------+-------------------+-------------|
+| *Todos*                   | An NPM package for managing and reporting 'TODO' comments in software projects | [[https://www.npmjs.com/package/@shipleylabs/todos][NPM Package]]       | [[https://github.com/reedship/todos_node][Github Repo]] |
+| *SimpleOkta*              | An open-source HTTP gem for common Okta API calls                              | [[https://rubygems.org/gems/simpleokta][RubyGems Source]]   | [[https://github.com/reedship/simpleokta][Github Repo]] |
+| *PPP5*                    | A Full Stack Pair Programming application for the P5.js library                | [[https://www.youtube.com/embed/N95z3fSR3jY][Video Walkthrough]] | [[https://github.com/reedship/ppp5][Github Repo]] |
+| *Magic: The Deck Builder* | A small-scale application built in React to interact with the Magic API        | [[https://www.youtube.com/embed/Mm0UnK66378][Video Walkthrough]] | [[https://github.com/reedship/mtdb][Github Repo]] |
+| *Ordeer*                  | A Full Stack Restaurant Ordering Application                                   | [[https://www.youtube.com/embed/B5NUT5Hejf0][Video Walkthrough]] | [[https://github.com/restaurant-ordering/Ordeer][Github Repo]] |
