@@ -22,14 +22,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb99281d">01 - Detecting Judoka</a>
+<li><a href="#org299d3de">01 - Detecting Judoka</a>
 <ul>
-<li><a href="#org6b38a49">Not Reinventing the Wheel</a></li>
-<li><a href="#org60e0b4a">Person Detection</a></li>
-<li><a href="#org83a9011">Discerning Identity</a>
+<li><a href="#org931a2fa">Not Reinventing the Wheel</a></li>
+<li><a href="#org43aacae">Person Detection</a></li>
+<li><a href="#org384d9f8">Discerning Identity</a>
 <ul>
-<li><a href="#org6cd7c32">BLUE</a></li>
-<li><a href="#org0a06b2d">WHITE</a></li>
+<li><a href="#orgd2a5c40">BLUE</a></li>
+<li><a href="#org2d326de">WHITE</a></li>
 </ul>
 </li>
 </ul>
@@ -37,9 +37,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb99281d" class="outline-2">
-<h2 id="orgb99281d">01 - Detecting Judoka</h2>
-<div class="outline-text-2" id="text-orgb99281d">
+<div id="outline-container-org299d3de" class="outline-2">
+<h2 id="org299d3de">01 - Detecting Judoka</h2>
+<div class="outline-text-2" id="text-org299d3de">
 <p>
 Now that I've had some time to think about what all is necessary, the first step should not be detecting the mat, but detecting the judoka (a person who practices judo). This is for three important reasons.
 </p>
@@ -59,9 +59,9 @@ Finally, we step into the fray.
 </p>
 </div>
 
-<div id="outline-container-org6b38a49" class="outline-3">
-<h3 id="org6b38a49">Not Reinventing the Wheel</h3>
-<div class="outline-text-3" id="text-org6b38a49">
+<div id="outline-container-org931a2fa" class="outline-3">
+<h3 id="org931a2fa">Not Reinventing the Wheel</h3>
+<div class="outline-text-3" id="text-org931a2fa">
 <p>
 I could absolutely build an entire neural network and pose estimation library myself, but that would be a huge waste of time and I'd never get anything off the ground.
 </p>
@@ -72,9 +72,9 @@ There is a very well established open source library called <code>yolov8</code> 
 </div>
 </div>
 
-<div id="outline-container-org60e0b4a" class="outline-3">
-<h3 id="org60e0b4a">Person Detection</h3>
-<div class="outline-text-3" id="text-org60e0b4a">
+<div id="outline-container-org43aacae" class="outline-3">
+<h3 id="org43aacae">Person Detection</h3>
+<div class="outline-text-3" id="text-org43aacae">
 <p>
 Take the following example video of myself being thrown with koshi guruma.
 </p>
@@ -107,7 +107,7 @@ Returns this frame:
 </p>
 
 
-<div id="orgc2260ae" class="figure">
+<div id="orga8a4255" class="figure">
 <p><img src="./assets/first_frame.jpg" alt="first_frame.jpg" />
 </p>
 </div>
@@ -190,16 +190,16 @@ Now we'll end up with the following image (cropped for presentation).
 </p>
 
 
-<div id="orgdf87eb5" class="figure">
+<div id="orgbafcc22" class="figure">
 <p><img src="./assets/boundary box.jpg" alt="boundary box.jpg" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org83a9011" class="outline-3">
-<h3 id="org83a9011">Discerning Identity</h3>
-<div class="outline-text-3" id="text-org83a9011">
+<div id="outline-container-org384d9f8" class="outline-3">
+<h3 id="org384d9f8">Discerning Identity</h3>
+<div class="outline-text-3" id="text-org384d9f8">
 <p>
 In competitive judo, there is usually one judoka in a blue gi, and one in a white. There are other uniform rules where both will wear white, with either a blue or a white belt, or a white and a red belt, but those formats will be ignored for initial MVP. On the IJF Tour and the Olympics, one competitor wears blue and one wears white, so that's what we'll be using for our project.
 </p>
@@ -228,7 +228,7 @@ Here is the result of cropping the image to just Oscar to show what I mean.
 </p>
 
 
-<div id="orgb5327b8" class="figure">
+<div id="orgdaba092" class="figure">
 <p><img src="./assets/538-unaltered.jpg" alt="538-unaltered.jpg" />
 </p>
 </div>
@@ -253,30 +253,30 @@ Once we have this unaltered crop, we can convert it grayscale and determine the 
 </div>
 </div>
 
-<div id="outline-container-org6cd7c32" class="outline-4">
-<h4 id="org6cd7c32">BLUE</h4>
-<div class="outline-text-4" id="text-org6cd7c32">
+<div id="outline-container-orgd2a5c40" class="outline-4">
+<h4 id="orgd2a5c40">BLUE</h4>
+<div class="outline-text-4" id="text-orgd2a5c40">
 <p>
 This cropped grayscale image has a total of <code>24416 / 8653701</code> total pixels greater than 127, and <code>87404 / 8653701</code> characters less than 127, so it's more dark than it is bright. This means it must be our blue gi.
 </p>
 
 
-<div id="org1bda9b3" class="figure">
+<div id="org938d901" class="figure">
 <p><img src="./assets/GI_COLOR.BLUE.jpg" alt="GI_COLOR.BLUE.jpg" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0a06b2d" class="outline-4">
-<h4 id="org0a06b2d">WHITE</h4>
-<div class="outline-text-4" id="text-org0a06b2d">
+<div id="outline-container-org2d326de" class="outline-4">
+<h4 id="org2d326de">WHITE</h4>
+<div class="outline-text-4" id="text-org2d326de">
 <p>
 This cropped grayscale image has a total of <code>44877 / 10441142</code> total pixels greater than 127, and <code>29431 / 10441142</code> characters less than 127, so it's more bright than it is dark. This means it must be our white gi.
 </p>
 
 
-<div id="orgbf5c04b" class="figure">
+<div id="org340bdc7" class="figure">
 <p><img src="./assets/GI_COLOR.WHITE.jpg" alt="GI_COLOR.WHITE.jpg" />
 </p>
 </div>
