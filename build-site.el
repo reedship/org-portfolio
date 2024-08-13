@@ -75,6 +75,7 @@
 	     :with-author t
 	     :time-stamp-file nil
 	     :language nil
+	     :with-title t
 	     )))
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil       ;; Use our own scripts
