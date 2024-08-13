@@ -47,7 +47,7 @@
       (list
        (list "org-site:static"
 	     :base-directory "./assets/"
-	     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|mp4\\|ogg\\|swf"
+	     :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|mp4\\|docx\\|swf"
 	     :publishing-directory "./public/assets"
 	     :recursive t
 	     :publishing-function 'org-publish-attachment
