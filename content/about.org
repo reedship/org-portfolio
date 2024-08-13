@@ -10,7 +10,7 @@
 
 5+ years of progressive experience building comprehensive back-end solutions and navigating integration roadblocks, analyzing raw data to develop actionable steps that provide scalable and automated support. Structures substantive development across the full life cycle with multi-faceted skills and a history of working with enterprise clients, internal teams, startups, financial institutions, and government partners.
 
-A document version of this resume can be downloaded [[file:~/dev/org-portfolio/assets/Reed Shipley resume.docx][here]].
+A document version of this resume can be downloaded [[../assets/Reed%20Shipley%20resume.docx][here]].
 
 * TECHNICAL SKILLS
 | **Category**    | **Tools/Technologies**                                                       |
