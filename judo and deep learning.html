@@ -22,30 +22,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4ddb3ad">Judo and Deep Learning</a>
+<li><a href="#org05d4843">Judo and Deep Learning</a>
 <ul>
-<li><a href="#org617a576">A Brief Introduction</a></li>
-<li><a href="#orgf722a0c">Athlete Progression in Judo</a></li>
-<li><a href="#orgddaab82">The Idea</a>
+<li><a href="#orga1e713d">A Brief Introduction</a></li>
+<li><a href="#org15eec0a">Athlete Progression in Judo</a></li>
+<li><a href="#orgfb2e77f">The Idea</a>
 <ul>
-<li><a href="#org21dc707">The Scale of the Problem</a></li>
-<li><a href="#org21620c7">The Complexity</a></li>
-<li><a href="#org2b4c813">The Training Data</a></li>
+<li><a href="#org2fe354b">The Scale of the Problem</a></li>
+<li><a href="#orgb0963f7">The Complexity</a></li>
+<li><a href="#orgb3295f3">The Training Data</a></li>
 </ul>
 </li>
-<li><a href="#org224714e">To Everyone Else</a></li>
+<li><a href="#orge21306a">To Everyone Else</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4ddb3ad" class="outline-2">
-<h2 id="org4ddb3ad">Judo and Deep Learning</h2>
-<div class="outline-text-2" id="text-org4ddb3ad">
+<div id="outline-container-org05d4843" class="outline-2">
+<h2 id="org05d4843">Judo and Deep Learning</h2>
+<div class="outline-text-2" id="text-org05d4843">
 </div>
-<div id="outline-container-org617a576" class="outline-3">
-<h3 id="org617a576">A Brief Introduction</h3>
-<div class="outline-text-3" id="text-org617a576">
+<div id="outline-container-orga1e713d" class="outline-3">
+<h3 id="orga1e713d">A Brief Introduction</h3>
+<div class="outline-text-3" id="text-orga1e713d">
 <p>
 I'm a software engineer in my day to day work, and I spend most of my time building and fixing APIs. Occasionally, I will find myself building a small internal tool to solve some niche problem, but my work is very ordinary and 'run of the mill'. I'm not being self-deprecating, but I think it's fair to say that my career and technical abilities are pretty average.
 </p>
@@ -64,9 +64,9 @@ The market for programmers is very turbulent right now, and it seems like every 
 </div>
 </div>
 
-<div id="outline-container-orgf722a0c" class="outline-3">
-<h3 id="orgf722a0c">Athlete Progression in Judo</h3>
-<div class="outline-text-3" id="text-orgf722a0c">
+<div id="outline-container-org15eec0a" class="outline-3">
+<h3 id="org15eec0a">Athlete Progression in Judo</h3>
+<div class="outline-text-3" id="text-org15eec0a">
 <p>
 It seems that, with small exception, most Judo clubs in the states run a similiar schedule for their classes. A brief warm up, some rolls and ukemi (break falls), followed by 30 minutes to an hour of drills around a specific technique of the instructors choosing (usually without a formal schedule or plan), and a couple rounds of randori (sparring, or 'free practice') at the end. There are many talented people who are pushing for a more data-driven coaching style (<a href="http://www.christopherround.com">Chris Round comes to mind</a>), but it still feels like the minority opinion.
 </p>
@@ -77,9 +77,9 @@ Coaching for competition in Judo is still very 'old-school' in many places. The 
 </div>
 </div>
 
-<div id="outline-container-orgddaab82" class="outline-3">
-<h3 id="orgddaab82">The Idea</h3>
-<div class="outline-text-3" id="text-orgddaab82">
+<div id="outline-container-orgfb2e77f" class="outline-3">
+<h3 id="orgfb2e77f">The Idea</h3>
+<div class="outline-text-3" id="text-orgfb2e77f">
 <p>
 Here is my hypothetical miracle product: a video analyzer that detects techniques (and their success rates), positions (whether the athlete is gripping standard sleeve + label, double sleeve, etc), shidos (penalties in judo), and logs these results to a usable format. A coach could look at these results and say, "you are never successful with Osoto Gari off of a cross grip", or "You are thrown 50% of the time when your opponent gets an overhand grip, we'll need to drill that position more often". Athletes could see a clear progression for their training, and coaches could know they are maximizing their time with each athlete.
 </p>
@@ -89,18 +89,18 @@ There are a couple of problems here.
 </p>
 </div>
 
-<div id="outline-container-org21dc707" class="outline-4">
-<h4 id="org21dc707">The Scale of the Problem</h4>
-<div class="outline-text-4" id="text-org21dc707">
+<div id="outline-container-org2fe354b" class="outline-4">
+<h4 id="org2fe354b">The Scale of the Problem</h4>
+<div class="outline-text-4" id="text-org2fe354b">
 <p>
 This is a huge scope, and we'll need to simplify this greatly for a proof of concept. Starting with detecting basic shido conditions instead of techniques applied seems like the easiest first step.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org21620c7" class="outline-4">
-<h4 id="org21620c7">The Complexity</h4>
-<div class="outline-text-4" id="text-org21620c7">
+<div id="outline-container-orgb0963f7" class="outline-4">
+<h4 id="orgb0963f7">The Complexity</h4>
+<div class="outline-text-4" id="text-orgb0963f7">
 <p>
 The number and variations of techniques in judo are quite large, assuming we are only discussing nage-waza (throwing techniques), and excluding all Ne Waza (ground techniques) as a starting point.
 </p>
@@ -111,9 +111,9 @@ My goal would be to include these in the training set as well, though it's more 
 </div>
 </div>
 
-<div id="outline-container-org2b4c813" class="outline-4">
-<h4 id="org2b4c813">The Training Data</h4>
-<div class="outline-text-4" id="text-org2b4c813">
+<div id="outline-container-orgb3295f3" class="outline-4">
+<h4 id="orgb3295f3">The Training Data</h4>
+<div class="outline-text-4" id="text-orgb3295f3">
 <p>
 Building a training set will take a large amount of time. In order to properly train this model, I'll need a wide variety of athletes performing the techniques with a large amount of camera angles. It's possible that building the training set could take longer than the actual training of the model.
 </p>
@@ -125,9 +125,9 @@ I don't know as much as I'd like to about this section of machine learning, but 
 </div>
 </div>
 
-<div id="outline-container-org224714e" class="outline-3">
-<h3 id="org224714e">To Everyone Else</h3>
-<div class="outline-text-3" id="text-org224714e">
+<div id="outline-container-orge21306a" class="outline-3">
+<h3 id="orge21306a">To Everyone Else</h3>
+<div class="outline-text-3" id="text-orge21306a">
 <p>
 It is on this note that I would like to ask for your help. If you are a Judoka, and feel comfortable filming yourself performing any of the techniques in the <a href="https://judoinfo.com/gokyo1/">Gokyo no Waza</a> please send them to me! If you feel up to editing, then small 2-3 second video of just the technique being performed will suffice. If you would like to send an unedited video and leave the clipping to me, that is totally ok! If you are a Judo content creator, and you don't mind me using your catalog of videos to help create this dataset, please let me know.
 </p>
