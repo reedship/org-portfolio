@@ -1,0 +1,35 @@
+* Tracking Identity in Video
+
+This is the second to the Judo and Deep Learning case study. You can find the introduction [[file:judo and deep learning.org][here]], and the previous entry [[file:01 - detecting judoka.org][here]].
+
+Previously, we were able to apply some basic pixel math to a single cropped image of a detected player to determine whether that Judoka was in a White or Blue Gi. The way we did this was a poor choice in hindsight (and probably foresight, to be honest), but lets show our work first.
+
+** Applying our method to a video capture
+
+We'll need to read in not just the first frame of a video, but each frame in sequence. Luckily this is very easy in ~opencv~.
+
+#+begin_src python
+  # load the same model and video as before
+  model = YOLO('yolov8n-pose.pt')
+  example_file_path = "/Volumes/trainingdata/edited/koshi guruma/13.mp4"
+
+  # open a capture stream
+  cap = cv2.VideoCapture(example_file_path)
+
+  while cap.isOpened():
+      success, frame = cap.read()
+      if cv2.waitKey(1) & 0xFF == ord("q"):
+	  break
+      if success:
+	  results = model(frame)
+#+end_src
+
+~results~ contains a...
+
+**** TODO Finish this section, document the Result and Box data type, talk about conversion requirement for parsing box xyxy data
+
+Using the same helper methods laid out in our previous entry, we'll get a cropped section of the video frame to parse and
+
+** Critiquing the results
+
+** What are my other options?
