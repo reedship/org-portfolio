@@ -1,10 +1,10 @@
-* [[file:writing.org][(2024-08-11) writing]]
+* [[file:about.org][(2024-08-13) Reed Shipley Resume]]
 (No preview)
-* [[file:index.org][(2024-08-11) Reed Shipley]]
+* [[file:index.org][(2024-08-13) Reed Shipley]]
 (No preview)
-* [[file:about.org][(2024-08-11) Reed Shipley Resume]]
+* [[file:writing.org][(2024-08-13) writing]]
 (No preview)
-* [[file:01 - detecting judoka.org][(2024-08-11) 01 - detecting judoka]]
+* [[file:judo and deep learning.org][(2024-08-13) judo and deep learning]]
 (No preview)
-* [[file:judo and deep learning.org][(2024-08-11) judo and deep learning]]
+* [[file:01 - detecting judoka.org][(2024-08-13) 01 - detecting judoka]]
 (No preview)
