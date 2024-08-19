@@ -33,3 +33,37 @@ Using the same helper methods laid out in our previous entry, we'll get a croppe
 ** Critiquing the results
 
 ** What are my other options?
+
+What we have here is a series of unknown unknowns. When I first tackled this, I had no idea about how to create custom datasets or classes of objects. What I need to do is this:
+
+  1. Create a annotated dataset that contains two class labels: `blue` and `white`. I can use a handful of videos and images I have already made to create this dataset. Using yolov8 I can easily export these keypoint annotations into a format that YOLO expects, and create a labelled training and validation set.
+  2. Train a model on the custom dataset, and test to see if our results are any different.
+
+
+** Creating an annotated dataset
+
+Where do we start? And moreso, how do we even do this?
+
+In my research there are a handful of opensource annotation tools that I can use to create keypoints for pose detection. All that really matters is that the keypoints are in the proper order. ~YOLOV8~ has a specific order that it expects all data to adhere to:
+
+ 1. Nose
+ 2. Left-eye
+ 3. Right-eye
+ 4. Left-ear
+ 5. Right-ear
+ 6. Left-shoulder
+ 7. Right-shoulder
+ 8. Left-elbow
+ 9. Right-elbow
+ 10. Left-wrist
+ 11. Right-wrist
+ 12. Left-hip
+ 13. Right-hip
+ 14. Left-knee
+ 15. Right-knee
+ 16. Left-ankle
+ 17. Right-ankle
+
+As long as the keypoint data is in that order format, we should be able to use any labelled tool we like. We can also use either ~2D~ (x, y), or ~3D~ (x, y, visible) tuple formatting for the keypoint itself.
+
+For my purposes, I think I will go with [[https:cvat.ai][CVAT]] for labelling. I can create pose estimation and convert the output it from ~JSON~ without too much trouble. This will be the majority of the following entry in this case study.
