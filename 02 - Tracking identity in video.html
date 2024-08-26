@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="nil" xml:lang="nil">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="preamble" class="status">
+<div class='topnav'>
+                                      <a href='/index.html'>Home</a> /
+                                      <a href='/writing.html'>Case Studies</a> /
+                                      <a href='/about.html'>About Me</a>
+                                      </div>
+</div>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3932b44">Tracking Identity in Video</a>
+<ul>
+<li><a href="#orgc5b8138">Applying our method to a video capture</a></li>
+<li><a href="#org950b9e7">Critiquing the results</a></li>
+<li><a href="#org2642563">What are my other options?</a></li>
+<li><a href="#orgf89c9a5">Creating an annotated dataset</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3932b44" class="outline-2">
+<h2 id="org3932b44">Tracking Identity in Video</h2>
+<div class="outline-text-2" id="text-org3932b44">
+<p>
+This is the second to the Judo and Deep Learning case study. You can find the introduction <a href="judo and deep learning.html">here</a>, and the previous entry <a href="01 - detecting judoka.html">here</a>.
+</p>
+
+<p>
+Previously, we were able to apply some basic pixel math to a single cropped image of a detected player to determine whether that Judoka was in a White or Blue Gi. The way we did this was a poor choice in hindsight (and probably foresight, to be honest), but lets show our work first.
+</p>
+</div>
+
+<div id="outline-container-orgc5b8138" class="outline-3">
+<h3 id="orgc5b8138">Applying our method to a video capture</h3>
+<div class="outline-text-3" id="text-orgc5b8138">
+<p>
+We'll need to read in not just the first frame of a video, but each frame in sequence. Luckily this is very easy in <code>opencv</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">load the same model and video as before</span>
+<span style="font-weight: bold; font-style: italic;">model</span> = YOLO(<span style="font-style: italic;">'yolov8n-pose.pt'</span>)
+<span style="font-weight: bold; font-style: italic;">example_file_path</span> = <span style="font-style: italic;">"/Volumes/trainingdata/edited/koshi guruma/13.mp4"</span>
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">open a capture stream</span>
+<span style="font-weight: bold; font-style: italic;">cap</span> = cv2.VideoCapture(example_file_path)
+
+<span style="font-weight: bold;">while</span> cap.isOpened():
+    <span style="font-weight: bold; font-style: italic;">success</span>, <span style="font-weight: bold; font-style: italic;">frame</span> = cap.read()
+    <span style="font-weight: bold;">if</span> cv2.waitKey(1) &amp; 0xFF == <span style="font-weight: bold;">ord</span>(<span style="font-style: italic;">"q"</span>):
+        <span style="font-weight: bold;">break</span>
+    <span style="font-weight: bold;">if</span> success:
+        <span style="font-weight: bold; font-style: italic;">results</span> = model(frame)
+</pre>
+</div>
+
+<p>
+<code>results</code> contains a collection of <code>Result</code> objects (documentation for that <a href="https://docs.ultralytics.com/reference/engine/results/#ultralytics.engine.results.Results">here</a>), which contains our bounding boxes, masks, probabilities, keypoints, etc. Each <code>result</code> is a person that is found (or thought to be found) by the model.
+</p>
+
+<p>
+For each <code>result</code> in each frame, we can create an annotation of that frame (documentation for that <a href="https://docs.ultralytics.com/reference/utils/plotting/?h=#ultralytics.utils.plotting.Annotator">here</a>), and then iterate over each <code>Box</code> in the result to find the gi color of the person contained within the boundary box.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">for</span> result <span style="font-weight: bold;">in</span> results:
+  <span style="font-weight: bold; font-style: italic;">annotator</span> = Annotator(frame)
+  <span style="font-weight: bold;">for</span> box <span style="font-weight: bold;">in</span> result.boxes:
+
+      <span style="font-weight: bold; font-style: italic;">converted_coords</span> = <span style="font-weight: bold;">list</span>(<span style="font-weight: bold;">map</span>(<span style="font-weight: bold;">int</span>,box.xyxy[0]))
+      debugShowRectangle(frame, converted_coords) <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">for my own debugging, to confirm that the area being checked was correct</span>
+      <span style="font-weight: bold; font-style: italic;">player_area</span> = getCroppedPlayerArea(frame, converted_coords)
+      <span style="font-weight: bold; font-style: italic;">grayscale</span> = cv2.cvtColor(player_area, cv2.COLOR_BGR2GRAY)
+      <span style="font-weight: bold; font-style: italic;">gi_color</span> = getGiColor(grayscale)
+      <span style="font-weight: bold;">print</span>(gi_color.value)
+      annotator.box_label(box.xyxy[0], f<span style="font-style: italic;">"</span>{gi_color}<span style="font-style: italic;">"</span>)
+</pre>
+</div>
+
+
+<p>
+Using the same helper methods (though slightly modified) that we laid out in our previous entry, we'll get a cropped section of the video frame to parse and determine the gi color contained within.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">debugShowRectangle</span>(image, box):
+    <span style="font-weight: bold; font-style: italic;">left</span>, <span style="font-weight: bold; font-style: italic;">top</span>, <span style="font-weight: bold; font-style: italic;">right</span>, <span style="font-weight: bold; font-style: italic;">bottom</span>  = box
+    cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 3)
+
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">getCroppedPlayerArea</span>(image, player):
+    <span style="font-weight: bold;">return</span> image[player[1]:+player[3], player[0]:player[2]]
+
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">getGiColor</span>(grayscale_image):
+    <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"values &gt;= 127: "</span>)
+    <span style="font-weight: bold;">print</span>(np.<span style="font-weight: bold;">sum</span>(grayscale &gt;= 127))
+    <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"values &lt;= 127: "</span>)
+    <span style="font-weight: bold;">print</span>(np.<span style="font-weight: bold;">sum</span>(grayscale &lt;= 127))
+    <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"total values: "</span>)
+    <span style="font-weight: bold;">print</span>(np.<span style="font-weight: bold;">sum</span>(grayscale))
+    <span style="font-weight: bold;">return</span> GI_COLOR.WHITE <span style="font-weight: bold;">if</span> (np.<span style="font-weight: bold;">sum</span>(grayscale &gt;= 127) &gt; np.<span style="font-weight: bold;">sum</span>(grayscale &lt;= 127)) <span style="font-weight: bold;">else</span> GI_COLOR.BLUE
+</pre>
+</div>
+
+<p>
+However, when this code is ran over the entire video, here is the result.
+</p>
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/qZieI4CYEpc" title="yolov8 without gi model layer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p>
+Clearly we have an issue of how we are parsing who is who.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org950b9e7" class="outline-3">
+<h3 id="org950b9e7">Critiquing the results</h3>
+</div>
+
+<div id="outline-container-org2642563" class="outline-3">
+<h3 id="org2642563">What are my other options?</h3>
+<div class="outline-text-3" id="text-org2642563">
+<p>
+What we have here is a series of unknown unknowns. When I first tackled this, I had no idea about how to create custom datasets or classes of objects. What I need to do is this:
+</p>
+
+<ol class="org-ol">
+<li>Create a annotated dataset that contains two class labels: `blue` and `white`. I can use a handful of videos and images I have already made to create this dataset. Using yolov8 I can easily export these keypoint annotations into a format that YOLO expects, and create a labelled training and validation set.</li>
+<li>Train a model on the custom dataset, and test to see if our results are any different.</li>
+</ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgf89c9a5" class="outline-3">
+<h3 id="orgf89c9a5">Creating an annotated dataset</h3>
+<div class="outline-text-3" id="text-orgf89c9a5">
+<p>
+Where do we start? And moreso, how do we even do this?
+</p>
+
+<p>
+In my research there are a handful of opensource annotation tools that I can use to create keypoints for pose detection. All that really matters is that the keypoints are in the proper order. <code>YOLOV8</code> has a specific order that it expects all data to adhere to:
+</p>
+
+<ol class="org-ol">
+<li>Nose</li>
+<li>Left-eye</li>
+<li>Right-eye</li>
+<li>Left-ear</li>
+<li>Right-ear</li>
+<li>Left-shoulder</li>
+<li>Right-shoulder</li>
+<li>Left-elbow</li>
+<li>Right-elbow</li>
+<li>Left-wrist</li>
+<li>Right-wrist</li>
+<li>Left-hip</li>
+<li>Right-hip</li>
+<li>Left-knee</li>
+<li>Right-knee</li>
+<li>Left-ankle</li>
+<li>Right-ankle</li>
+</ol>
+
+<p>
+As long as the keypoint data is in that order format, we should be able to use any labelled tool we like. We can also use either <code>2D</code> (x, y), or <code>3D</code> (x, y, visible) tuple formatting for the keypoint itself.
+</p>
+
+<p>
+For my purposes, I think I will go with <a href="https:cvat.ai">CVAT</a> for labelling. I can create pose estimation and convert the output it from <code>JSON</code> without too much trouble. This will be the majority of the following entry in this case study.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
