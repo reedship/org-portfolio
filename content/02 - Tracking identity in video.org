@@ -1,0 +1,110 @@
+* Tracking Identity in Video
+
+This is the second to the Judo and Deep Learning case study. You can find the introduction [[file:judo and deep learning.org][here]], and the previous entry [[file:01 - detecting judoka.org][here]].
+
+Previously, we were able to apply some basic pixel math to a single cropped image of a detected player to determine whether that Judoka was in a White or Blue Gi. The way we did this was a poor choice in hindsight (and probably foresight, to be honest), but lets show our work first.
+
+** Applying our method to a video capture
+
+We'll need to read in not just the first frame of a video, but each frame in sequence. Luckily this is very easy in ~opencv~.
+
+#+begin_src python
+  # load the same model and video as before
+  model = YOLO('yolov8n-pose.pt')
+  example_file_path = "/Volumes/trainingdata/edited/koshi guruma/13.mp4"
+
+  # open a capture stream
+  cap = cv2.VideoCapture(example_file_path)
+
+  while cap.isOpened():
+      success, frame = cap.read()
+      if cv2.waitKey(1) & 0xFF == ord("q"):
+	  break
+      if success:
+	  results = model(frame)
+#+end_src
+
+~results~ contains a collection of ~Result~ objects (documentation for that [[https://docs.ultralytics.com/reference/engine/results/#ultralytics.engine.results.Results][here]]), which contains our bounding boxes, masks, probabilities, keypoints, etc. Each ~result~ is a person that is found (or thought to be found) by the model.
+
+For each ~result~ in each frame, we can create an annotation of that frame (documentation for that [[https://docs.ultralytics.com/reference/utils/plotting/?h=#ultralytics.utils.plotting.Annotator][here]]), and then iterate over each ~Box~ in the result to find the gi color of the person contained within the boundary box.
+
+#+begin_src python
+  for result in results:
+    annotator = Annotator(frame)
+    for box in result.boxes:
+
+        converted_coords = list(map(int,box.xyxy[0]))
+        debugShowRectangle(frame, converted_coords) # for my own debugging, to confirm that the area being checked was correct
+        player_area = getCroppedPlayerArea(frame, converted_coords)
+        grayscale = cv2.cvtColor(player_area, cv2.COLOR_BGR2GRAY)
+        gi_color = getGiColor(grayscale)
+        print(gi_color.value)
+        annotator.box_label(box.xyxy[0], f"{gi_color}")
+#+end_src
+
+
+Using the same helper methods (though slightly modified) that we laid out in our previous entry, we'll get a cropped section of the video frame to parse and determine the gi color contained within.
+
+#+begin_src python
+def debugShowRectangle(image, box):
+    left, top, right, bottom  = box
+    cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 3)
+
+def getCroppedPlayerArea(image, player):
+    return image[player[1]:+player[3], player[0]:player[2]]
+
+def getGiColor(grayscale_image):
+    print("values >= 127: ")
+    print(np.sum(grayscale >= 127))
+    print("values <= 127: ")
+    print(np.sum(grayscale <= 127))
+    print("total values: ")
+    print(np.sum(grayscale))
+    return GI_COLOR.WHITE if (np.sum(grayscale >= 127) > np.sum(grayscale <= 127)) else GI_COLOR.BLUE
+#+End_src
+
+However, when this code is ran over the entire video, here is the result.
+
+#+begin_export html
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/qZieI4CYEpc" title="yolov8 without gi model layer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+#+end_export
+
+Clearly we have an issue of how we are parsing who is who.
+
+** Critiquing the results
+
+** What are my other options?
+
+What we have here is a series of unknown unknowns. When I first tackled this, I had no idea about how to create custom datasets or classes of objects. What I need to do is this:
+
+  1. Create a annotated dataset that contains two class labels: `blue` and `white`. I can use a handful of videos and images I have already made to create this dataset. Using yolov8 I can easily export these keypoint annotations into a format that YOLO expects, and create a labelled training and validation set.
+  2. Train a model on the custom dataset, and test to see if our results are any different.
+
+
+** Creating an annotated dataset
+
+Where do we start? And moreso, how do we even do this?
+
+In my research there are a handful of opensource annotation tools that I can use to create keypoints for pose detection. All that really matters is that the keypoints are in the proper order. ~YOLOV8~ has a specific order that it expects all data to adhere to:
+
+ 1. Nose
+ 2. Left-eye
+ 3. Right-eye
+ 4. Left-ear
+ 5. Right-ear
+ 6. Left-shoulder
+ 7. Right-shoulder
+ 8. Left-elbow
+ 9. Right-elbow
+ 10. Left-wrist
+ 11. Right-wrist
+ 12. Left-hip
+ 13. Right-hip
+ 14. Left-knee
+ 15. Right-knee
+ 16. Left-ankle
+ 17. Right-ankle
+
+As long as the keypoint data is in that order format, we should be able to use any labelled tool we like. We can also use either ~2D~ (x, y), or ~3D~ (x, y, visible) tuple formatting for the keypoint itself.
+
+For my purposes, I think I will go with [[https:cvat.ai][CVAT]] for labelling. I can create pose estimation and convert the output it from ~JSON~ without too much trouble. This will be the majority of the following entry in this case study.
