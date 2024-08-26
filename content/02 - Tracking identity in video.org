@@ -24,11 +24,52 @@ We'll need to read in not just the first frame of a video, but each frame in seq
 	  results = model(frame)
 #+end_src
 
-~results~ contains a...
+~results~ contains a collection of ~Result~ objects (documentation for that [[https://docs.ultralytics.com/reference/engine/results/#ultralytics.engine.results.Results][here]]), which contains our bounding boxes, masks, probabilities, keypoints, etc. Each ~result~ is a person that is found (or thought to be found) by the model.
 
-**** TODO Finish this section, document the Result and Box data type, talk about conversion requirement for parsing box xyxy data
+For each ~result~ in each frame, we can create an annotation of that frame (documentation for that [[https://docs.ultralytics.com/reference/utils/plotting/?h=#ultralytics.utils.plotting.Annotator][here]]), and then iterate over each ~Box~ in the result to find the gi color of the person contained within the boundary box.
 
-Using the same helper methods laid out in our previous entry, we'll get a cropped section of the video frame to parse and
+#+begin_src python
+  for result in results:
+    annotator = Annotator(frame)
+    for box in result.boxes:
+
+        converted_coords = list(map(int,box.xyxy[0]))
+        debugShowRectangle(frame, converted_coords) # for my own debugging, to confirm that the area being checked was correct
+        player_area = getCroppedPlayerArea(frame, converted_coords)
+        grayscale = cv2.cvtColor(player_area, cv2.COLOR_BGR2GRAY)
+        gi_color = getGiColor(grayscale)
+        print(gi_color.value)
+        annotator.box_label(box.xyxy[0], f"{gi_color}")
+#+end_src
+
+
+Using the same helper methods (though slightly modified) that we laid out in our previous entry, we'll get a cropped section of the video frame to parse and determine the gi color contained within.
+
+#+begin_src python
+def debugShowRectangle(image, box):
+    left, top, right, bottom  = box
+    cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 3)
+
+def getCroppedPlayerArea(image, player):
+    return image[player[1]:+player[3], player[0]:player[2]]
+
+def getGiColor(grayscale_image):
+    print("values >= 127: ")
+    print(np.sum(grayscale >= 127))
+    print("values <= 127: ")
+    print(np.sum(grayscale <= 127))
+    print("total values: ")
+    print(np.sum(grayscale))
+    return GI_COLOR.WHITE if (np.sum(grayscale >= 127) > np.sum(grayscale <= 127)) else GI_COLOR.BLUE
+#+End_src
+
+However, when this code is ran over the entire video, here is the result.
+
+#+begin_export html
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/qZieI4CYEpc" title="yolov8 without gi model layer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+#+end_export
+
+Clearly we have an issue of how we are parsing who is who.
 
 ** Critiquing the results
 
