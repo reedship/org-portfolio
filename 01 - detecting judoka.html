@@ -22,14 +22,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2f09d62">01 - Detecting Judoka</a>
+<li><a href="#org36b498a">01 - Detecting Judoka</a>
 <ul>
-<li><a href="#org2283245">Not Reinventing the Wheel</a></li>
-<li><a href="#org52987cb">Person Detection</a></li>
-<li><a href="#org07c6df9">Discerning Identity</a>
+<li><a href="#org0debc8d">Not Reinventing the Wheel</a></li>
+<li><a href="#org5e0e3fe">Person Detection</a></li>
+<li><a href="#orgad92efd">Discerning Identity</a>
 <ul>
-<li><a href="#org14e3c32">BLUE</a></li>
-<li><a href="#org87b6411">WHITE</a></li>
+<li><a href="#org554dff8">BLUE</a></li>
+<li><a href="#org9abf08a">WHITE</a></li>
 </ul>
 </li>
 </ul>
@@ -37,9 +37,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2f09d62" class="outline-2">
-<h2 id="org2f09d62">01 - Detecting Judoka</h2>
-<div class="outline-text-2" id="text-org2f09d62">
+<div id="outline-container-org36b498a" class="outline-2">
+<h2 id="org36b498a">01 - Detecting Judoka</h2>
+<div class="outline-text-2" id="text-org36b498a">
 <p>
 Now that I've had some time to think about what all is necessary, the first step should not be detecting the mat, but detecting the judoka (a person who practices judo). This is for three important reasons.
 </p>
@@ -58,10 +58,9 @@ A quick note that as we get into the actual implementation of this, there will b
 Finally, we step into the fray.
 </p>
 </div>
-
-<div id="outline-container-org2283245" class="outline-3">
-<h3 id="org2283245">Not Reinventing the Wheel</h3>
-<div class="outline-text-3" id="text-org2283245">
+<div id="outline-container-org0debc8d" class="outline-3">
+<h3 id="org0debc8d">Not Reinventing the Wheel</h3>
+<div class="outline-text-3" id="text-org0debc8d">
 <p>
 I could absolutely build an entire neural network and pose estimation library myself, but that would be a huge waste of time and I'd never get anything off the ground.
 </p>
@@ -71,10 +70,9 @@ There is a very well established open source library called <code>yolov8</code> 
 </p>
 </div>
 </div>
-
-<div id="outline-container-org52987cb" class="outline-3">
-<h3 id="org52987cb">Person Detection</h3>
-<div class="outline-text-3" id="text-org52987cb">
+<div id="outline-container-org5e0e3fe" class="outline-3">
+<h3 id="org5e0e3fe">Person Detection</h3>
+<div class="outline-text-3" id="text-org5e0e3fe">
 <p>
 Take the following example video of myself being thrown with koshi guruma.
 </p>
@@ -107,7 +105,7 @@ Returns this frame:
 </p>
 
 
-<div id="org61307c8" class="figure">
+<div id="org95b2602" class="figure">
 <p><img src="./assets/first_frame.jpg" alt="first_frame.jpg" />
 </p>
 </div>
@@ -144,14 +142,14 @@ Then we'll need to parse these rows to populate lists of <code>conf</code> (conf
     <span style="font-weight: bold; font-style: italic;">_</span>,<span style="font-weight: bold; font-style: italic;">_</span>,<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">max_idx</span> = cv2.minMaxLoc(classes_score)
     <span style="font-weight: bold; font-style: italic;">class_id</span> = max_idx[1]
     <span style="font-weight: bold;">if</span> (classes_score[class_id] &gt; .25):
-      <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">get boxes</span>
-      <span style="font-weight: bold; font-style: italic;">x</span>,<span style="font-weight: bold; font-style: italic;">y</span>,<span style="font-weight: bold; font-style: italic;">w</span>,<span style="font-weight: bold; font-style: italic;">h</span> = row[0].item(), row[1].item(), row[2].item(), row[3].item()
-      <span style="font-weight: bold; font-style: italic;">left</span> = <span style="font-weight: bold;">int</span>((x - 0.5 * w) * x_factor)
-      <span style="font-weight: bold; font-style: italic;">top</span> = <span style="font-weight: bold;">int</span>((y - 0.5 * h) * y_factor)
-      <span style="font-weight: bold; font-style: italic;">width</span> = <span style="font-weight: bold;">int</span>(w * x_factor)
-      <span style="font-weight: bold; font-style: italic;">height</span> = <span style="font-weight: bold;">int</span>(h * y_factor)
-      <span style="font-weight: bold; font-style: italic;">box</span> = np.array([left, top, width, height])
-      boxes.append(box)
+        <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">get boxes</span>
+        <span style="font-weight: bold; font-style: italic;">x</span>,<span style="font-weight: bold; font-style: italic;">y</span>,<span style="font-weight: bold; font-style: italic;">w</span>,<span style="font-weight: bold; font-style: italic;">h</span> = row[0].item(), row[1].item(), row[2].item(), row[3].item()
+        <span style="font-weight: bold; font-style: italic;">left</span> = <span style="font-weight: bold;">int</span>((x - 0.5 * w) * x_factor)
+        <span style="font-weight: bold; font-style: italic;">top</span> = <span style="font-weight: bold;">int</span>((y - 0.5 * h) * y_factor)
+        <span style="font-weight: bold; font-style: italic;">width</span> = <span style="font-weight: bold;">int</span>(w * x_factor)
+        <span style="font-weight: bold; font-style: italic;">height</span> = <span style="font-weight: bold;">int</span>(h * y_factor)
+        <span style="font-weight: bold; font-style: italic;">box</span> = np.array([left, top, width, height])
+        boxes.append(box)
 
   <span style="font-weight: bold;">return</span> confs, boxes
 </pre>
@@ -168,12 +166,12 @@ For each of these we'll need to generate a way to store the position of each per
 
 <span style="font-weight: bold; font-style: italic;">found_people</span> = [
     [
-        boxes[i][0],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">left</span>
-        boxes[i][1],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">top</span>
-        boxes[i][2],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">width</span>
-        boxes[i][3],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">height</span>
-        confs[i],     <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">conf</span>
-        GI_COLOR.UNKNOWN  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Initial GI color</span>
+          boxes[i][0],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">left</span>
+          boxes[i][1],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">top</span>
+          boxes[i][2],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">width</span>
+          boxes[i][3],  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">height</span>
+          confs[i],     <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">conf</span>
+          GI_COLOR.UNKNOWN  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Initial GI color</span>
     ]
     <span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> indexes
 ]
@@ -190,16 +188,15 @@ Now we'll end up with the following image (cropped for presentation).
 </p>
 
 
-<div id="orgc3b09d8" class="figure">
+<div id="orgd766102" class="figure">
 <p><img src="./assets/boundary box.jpg" alt="boundary box.jpg" />
 </p>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org07c6df9" class="outline-3">
-<h3 id="org07c6df9">Discerning Identity</h3>
-<div class="outline-text-3" id="text-org07c6df9">
+<div id="outline-container-orgad92efd" class="outline-3">
+<h3 id="orgad92efd">Discerning Identity</h3>
+<div class="outline-text-3" id="text-orgad92efd">
 <p>
 In competitive judo, there is usually one judoka in a blue gi, and one in a white. There are other uniform rules where both will wear white, with either a blue or a white belt, or a white and a red belt, but those formats will be ignored for initial MVP. On the IJF Tour and the Olympics, one competitor wears blue and one wears white, so that's what we'll be using for our project.
 </p>
@@ -228,7 +225,7 @@ Here is the result of cropping the image to just Oscar to show what I mean.
 </p>
 
 
-<div id="org3d563df" class="figure">
+<div id="orgf758ce1" class="figure">
 <p><img src="./assets/538-unaltered.jpg" alt="538-unaltered.jpg" />
 </p>
 </div>
@@ -252,31 +249,29 @@ Once we have this unaltered crop, we can convert it grayscale and determine the 
 </pre>
 </div>
 </div>
-
-<div id="outline-container-org14e3c32" class="outline-4">
-<h4 id="org14e3c32">BLUE</h4>
-<div class="outline-text-4" id="text-org14e3c32">
+<div id="outline-container-org554dff8" class="outline-4">
+<h4 id="org554dff8">BLUE</h4>
+<div class="outline-text-4" id="text-org554dff8">
 <p>
 This cropped grayscale image has a total of <code>24416 / 8653701</code> total pixels greater than 127, and <code>87404 / 8653701</code> characters less than 127, so it's more dark than it is bright. This means it must be our blue gi.
 </p>
 
 
-<div id="org9efe1ac" class="figure">
+<div id="orge2a9363" class="figure">
 <p><img src="./assets/GI_COLOR.BLUE.jpg" alt="GI_COLOR.BLUE.jpg" />
 </p>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org87b6411" class="outline-4">
-<h4 id="org87b6411">WHITE</h4>
-<div class="outline-text-4" id="text-org87b6411">
+<div id="outline-container-org9abf08a" class="outline-4">
+<h4 id="org9abf08a">WHITE</h4>
+<div class="outline-text-4" id="text-org9abf08a">
 <p>
 This cropped grayscale image has a total of <code>44877 / 10441142</code> total pixels greater than 127, and <code>29431 / 10441142</code> characters less than 127, so it's more bright than it is dark. This means it must be our white gi.
 </p>
 
 
-<div id="org6850947" class="figure">
+<div id="orgf631caf" class="figure">
 <p><img src="./assets/GI_COLOR.WHITE.jpg" alt="GI_COLOR.WHITE.jpg" />
 </p>
 </div>

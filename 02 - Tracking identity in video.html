@@ -22,20 +22,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3932b44">Tracking Identity in Video</a>
+<li><a href="#org3146047">Tracking Identity in Video</a>
 <ul>
-<li><a href="#orgc5b8138">Applying our method to a video capture</a></li>
-<li><a href="#org950b9e7">Critiquing the results</a></li>
-<li><a href="#org2642563">What are my other options?</a></li>
-<li><a href="#orgf89c9a5">Creating an annotated dataset</a></li>
+<li><a href="#org692a81f">Applying our method to a video capture</a></li>
+<li><a href="#org3dc4917">Critiquing the results</a></li>
+<li><a href="#orgfd11405">What are my other options?</a></li>
+<li><a href="#org1fd020a">Creating an annotated dataset</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org3932b44" class="outline-2">
-<h2 id="org3932b44">Tracking Identity in Video</h2>
-<div class="outline-text-2" id="text-org3932b44">
+<div id="outline-container-org3146047" class="outline-2">
+<h2 id="org3146047">Tracking Identity in Video</h2>
+<div class="outline-text-2" id="text-org3146047">
 <p>
 This is the second to the Judo and Deep Learning case study. You can find the introduction <a href="judo and deep learning.html">here</a>, and the previous entry <a href="01 - detecting judoka.html">here</a>.
 </p>
@@ -44,10 +44,9 @@ This is the second to the Judo and Deep Learning case study. You can find the in
 Previously, we were able to apply some basic pixel math to a single cropped image of a detected player to determine whether that Judoka was in a White or Blue Gi. The way we did this was a poor choice in hindsight (and probably foresight, to be honest), but lets show our work first.
 </p>
 </div>
-
-<div id="outline-container-orgc5b8138" class="outline-3">
-<h3 id="orgc5b8138">Applying our method to a video capture</h3>
-<div class="outline-text-3" id="text-orgc5b8138">
+<div id="outline-container-org692a81f" class="outline-3">
+<h3 id="org692a81f">Applying our method to a video capture</h3>
+<div class="outline-text-3" id="text-org692a81f">
 <p>
 We'll need to read in not just the first frame of a video, but each frame in sequence. Luckily this is very easy in <code>opencv</code>.
 </p>
@@ -63,9 +62,9 @@ We'll need to read in not just the first frame of a video, but each frame in seq
 <span style="font-weight: bold;">while</span> cap.isOpened():
     <span style="font-weight: bold; font-style: italic;">success</span>, <span style="font-weight: bold; font-style: italic;">frame</span> = cap.read()
     <span style="font-weight: bold;">if</span> cv2.waitKey(1) &amp; 0xFF == <span style="font-weight: bold;">ord</span>(<span style="font-style: italic;">"q"</span>):
-        <span style="font-weight: bold;">break</span>
+          <span style="font-weight: bold;">break</span>
     <span style="font-weight: bold;">if</span> success:
-        <span style="font-weight: bold; font-style: italic;">results</span> = model(frame)
+          <span style="font-weight: bold; font-style: italic;">results</span> = model(frame)
 </pre>
 </div>
 
@@ -127,14 +126,13 @@ Clearly we have an issue of how we are parsing who is who.
 </p>
 </div>
 </div>
-
-<div id="outline-container-org950b9e7" class="outline-3">
-<h3 id="org950b9e7">Critiquing the results</h3>
+<div id="outline-container-org3dc4917" class="outline-3">
+<h3 id="org3dc4917">Critiquing the results</h3>
 </div>
 
-<div id="outline-container-org2642563" class="outline-3">
-<h3 id="org2642563">What are my other options?</h3>
-<div class="outline-text-3" id="text-org2642563">
+<div id="outline-container-orgfd11405" class="outline-3">
+<h3 id="orgfd11405">What are my other options?</h3>
+<div class="outline-text-3" id="text-orgfd11405">
 <p>
 What we have here is a series of unknown unknowns. When I first tackled this, I had no idea about how to create custom datasets or classes of objects. What I need to do is this:
 </p>
@@ -145,11 +143,9 @@ What we have here is a series of unknown unknowns. When I first tackled this, I 
 </ol>
 </div>
 </div>
-
-
-<div id="outline-container-orgf89c9a5" class="outline-3">
-<h3 id="orgf89c9a5">Creating an annotated dataset</h3>
-<div class="outline-text-3" id="text-orgf89c9a5">
+<div id="outline-container-org1fd020a" class="outline-3">
+<h3 id="org1fd020a">Creating an annotated dataset</h3>
+<div class="outline-text-3" id="text-org1fd020a">
 <p>
 Where do we start? And moreso, how do we even do this?
 </p>
